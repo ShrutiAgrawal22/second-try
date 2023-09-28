@@ -1,0 +1,33 @@
+import java.util.Scanner;
+public class Armstrong {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("enter num: ");
+        int num = input.nextInt();
+
+        int copy = num;
+
+        int count = 0;
+        for(;num>0;num=num/10){
+            count++;
+        }
+
+        int tempt = copy;
+        int x;
+        int arm = 0 ;
+        while(copy>0){
+            x = copy%10;
+//            arm += Math.pow(x, count); two ways -- this one impplicit type cast
+            arm = arm + (int)(Math.pow(x, count)); //this is explicit typecast
+            copy = copy/10;
+        }
+
+        if(tempt == arm){
+            System.out.println("armstrong number.");
+        }
+        else{
+            System.out.println("not");
+        }
+    }
+}
